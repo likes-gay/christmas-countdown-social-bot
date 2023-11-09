@@ -1,0 +1,20 @@
+{
+  "name": "bluesky-chrsitmas-countdown",
+  "version": "1.0.0",
+  "description": "Christmas Countdown BlueSky Bot",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0"
+  }
+}
