@@ -6,9 +6,9 @@ Everyday, this bot posts a photo of how many days are left until Christmas.
 
 ## Account Link
 
-The account is **[@christmas_countdown.bsky.social](https://bsky.app/profile/christmas_countdown.bsky.social)**.
+The account is **[@xmas-countdown.bsky.social](https://bsky.app/profile/xmas-countdown.bsky.social)**.
 
-Link: https://bsky.app/profile/christmas_countdown.bsky.social
+Link: https://bsky.app/profile/xmas-countdown.bsky.social
 
 ## File Structure
 
