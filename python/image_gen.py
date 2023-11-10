@@ -18,10 +18,10 @@ for i, image in enumerate(list_of_images):
     cur_img = cur_img.crop((left, top, right, bottom))
     
     #resize image
-    cur_img = cur_img.resize((1500, 1500))
+    cur_img = cur_img.resize((1200, 1200))
     
     #update width and height
-    width, height = (1500, 1500)
+    width, height = (1200, 1200)
     
     # add effects to image
     cur_img = cur_img.filter(ImageFilter.GaussianBlur(12))
