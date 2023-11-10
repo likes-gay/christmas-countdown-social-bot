@@ -11,7 +11,7 @@ const christmasDate = new Date(todayDate.getFullYear(), 11, 25).getTime();
 const diffInMilliseconds = christmasDate - todayDate.getTime();
 const diffInDays = Math.ceil(diffInMilliseconds / (24 * 60 * 60 * 1000));
 
-const timeFormat = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+const timeFormat = new Intl.RelativeTimeFormat("en-GB", { numeric: "auto" });
 const daysUntilChristmas = parseInt(
 	timeFormat.formatToParts(diffInDays, "day")
 		.find(x => x.type == "integer")!
@@ -68,7 +68,7 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 		record: {
 			$type: "app.bsky.feed.post",
 			text: `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
-			createdAt: todayDate.toISOString(),
+			createdAt: new Date().toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
