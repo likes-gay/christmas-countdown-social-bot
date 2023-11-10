@@ -9,7 +9,7 @@
 		"js": "node dist/index.js",
 		"build": "tsc"
 	},
-	"keywords": [],
+	"keywords": ["Bluesky", "bot", "Christmas", "countdown"],
 	"contributors": [
 		{
 			"name": "Yummy_Bacon5",

@@ -10,7 +10,7 @@ const todayDate = new Date().getTime();
 const christmasDate = new Date(new Date().getFullYear(), 11, 25).getTime();
 const daysUntilChristmas = Math.round(Math.abs((christmasDate - todayDate) / oneDayInMs));
 
-async function fetchWithError(url: string, ops: RequestInit): Promise<Response> {
+async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
 	const res = await fetch(url, ops);
 
 	if(!res.ok) {
