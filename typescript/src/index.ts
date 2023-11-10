@@ -5,10 +5,18 @@ import "dotenv/config";
 
 const BSKY_URL = "https://bsky.social";
 
-const oneDayInMs = 24 * 60 * 60 * 1000;
-const todayDate = new Date().getTime();
-const christmasDate = new Date(new Date().getFullYear(), 11, 25).getTime();
-const daysUntilChristmas = Math.round(Math.abs((christmasDate - todayDate) / oneDayInMs));
+const todayDate = new Date();
+const christmasDate = new Date(todayDate.getFullYear(), 11, 25).getTime();
+
+const diffInMilliseconds = christmasDate - todayDate.getTime();
+const diffInDays = Math.ceil(diffInMilliseconds / (24 * 60 * 60 * 1000));
+
+const timeFormat = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+const daysUntilChristmas = parseInt(
+	timeFormat.formatToParts(diffInDays, "day")
+		.find(x => x.type == "integer")!
+		.value
+);
 
 async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
 	const res = await fetch(url, ops);
@@ -60,7 +68,7 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 		record: {
 			$type: "app.bsky.feed.post",
 			text: `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
-			createdAt: new Date().toISOString(),
+			createdAt: todayDate.toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
