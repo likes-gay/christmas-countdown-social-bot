@@ -45,13 +45,13 @@ const createdPost = await fetch(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`
 		collection: "app.bsky.feed.post",
 		record: {
 			$type: "app.bsky.feed.post",
-			text: `There are ${daysUntilChristmas} days until Christmas!`,
+			text: `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
 			createdAt: new Date().toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
 				images: [{
-					alt: `${daysUntilChristmas} days until Christmas!`,
+					alt: `${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
 					image: createdBlob.blob
 				}]
 			}
