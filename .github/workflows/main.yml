@@ -1,0 +1,32 @@
+name: Post every 24 hours
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  create-post:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        path: "typescript"
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Compile TypeScript
+      run: npm run build
+
+    - name: Create post
+      run: npm run js
+      env:
+        HANDLE: ${{ secrets.HANDLE }}
+        PASSWORD: ${{ secrets.PASSWORD }}
