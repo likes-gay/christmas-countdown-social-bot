@@ -47,7 +47,7 @@ for i, image in enumerate(list_of_images):
         text_on_image.text((width/2, height/2 + 1000), "Days until Christmas!", font=font, anchor="mm")
     
     # save image
-    cur_img.save(f'./filter_text_applied/{i+1}.png')
+    cur_img.save(f'../images/{i+1}.png')
     
     
 # https://stackoverflow.com/questions/1970807/center-middle-align-text-with-pil
