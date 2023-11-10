@@ -12,7 +12,7 @@ Link: https://bsky.app/profile/xmas-countdown.bsky.social
 
 ## File Structure
 
-- [`python`](https://github.com/Zoobdude/bluesky-chrsitmas-countdown/tree/main/python): genereates [`images`](https://github.com/Zoobdude/bluesky-chrsitmas-countdown/tree/main/images).
+- [`python`](https://github.com/Zoobdude/bluesky-chrsitmas-countdown/tree/main/python): adds the counter text and outputs to [`images`](https://github.com/Zoobdude/bluesky-chrsitmas-countdown/tree/main/images).
   - Every file should be a `.png`
   - The filename is the amount of days remaining
 - [`typescript`](https://github.com/Zoobdude/bluesky-chrsitmas-countdown/tree/main/typescript): posts the images.
