@@ -26,7 +26,7 @@ export type SessionInfo = {
 export type CreatedPostResponse = {
 	uri: string;
 	cid: string;
-}
+};
 
 export type UploadedBlobResponse = {
 	blob: {
@@ -37,7 +37,7 @@ export type UploadedBlobResponse = {
 		mimeType: "image/png" | string;
 		size: number;
 	};
-}
+};
 
 export type PostRecord = {
 	repo: string;
@@ -51,7 +51,7 @@ export type PostRecord = {
 			$type: "app.bsky.embed.images";
 			images: {
 				alt: string;
-				image: UploadedBlobResponse;
+				image: UploadedBlobResponse["blob"];
 			}[];
 		};
 	};
@@ -60,4 +60,9 @@ export type PostRecord = {
 export type ErrorResponse = {
 	error: string;
 	message: string;
+};
+
+export type AuthTokens = {
+	identifier: string;
+	password: string;
 };

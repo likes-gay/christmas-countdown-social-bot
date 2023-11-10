@@ -1,5 +1,5 @@
 import fs from "fs";
-import { SessionInfo, CreatedPostResponse, UploadedBlobResponse, ErrorResponse } from "./types";
+import { SessionInfo, CreatedPostResponse, UploadedBlobResponse, ErrorResponse, PostRecord, AuthTokens } from "./types";
 import "dotenv/config";
 import path from "path";
 
@@ -15,9 +15,9 @@ const createdSession: SessionInfo = await fetch(`${BSKY_URL}/xrpc/com.atproto.se
 		"Content-Type": "application/json"
 	},
 	body: JSON.stringify({
-		identifier: process.env.HANDLE,
-		password: process.env.PASSWORD
-	}),
+		identifier: process.env.HANDLE!,
+		password: process.env.PASSWORD!
+	} as AuthTokens),
 	method: "POST"
 }).then(x => x.json());
 
@@ -56,7 +56,7 @@ const createdPost = await fetch(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`
 				}]
 			}
 		}
-	}),
+	} as PostRecord),
 	method: "POST"
 });
 
