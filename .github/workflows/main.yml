@@ -24,15 +24,15 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./typescript
+      working-directory: typescript
 
     - name: Compile TypeScript
       run: npm run build
-      working-directory: ./typescript
+      working-directory: typescript
 
     - name: Create post
       run: npm run js
-      working-directory: ./typescript
+      working-directory: typescript
       env:
         HANDLE: ${{ secrets.HANDLE }}
         PASSWORD: ${{ secrets.PASSWORD }}
