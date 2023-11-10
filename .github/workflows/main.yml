@@ -15,7 +15,7 @@ jobs:
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
-      working-directory: typescript
+      working-directory: ./typescript
       with:
         node-version: "20"
 
