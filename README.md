@@ -2,11 +2,11 @@
 
 This is a Christmas countdown bot, made for [Bluesky](https://bsky.app).
 
-Everyday, this bot posts a photo of how many days are left until Christmas.
+Everyday, this bot posts an image with how many days are left until Christmas.
 
 ## Account Link
 
-The account is **[@xmas-countdown.bsky.social](https://bsky.app/profile/xmas-countdown.bsky.social)**.
+The account is **[@xmas-countdown.bsky.social](https://bsky.app/profile/xmas-countdown.bsky.social)** drop it a follow ;)
 
 Link: https://bsky.app/profile/xmas-countdown.bsky.social
 
