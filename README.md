@@ -12,13 +12,10 @@ Link: https://bsky.app/profile/christmas_countdown.bsky.social
 
 ## File Structure
 
-The `images`, have been generated from the `python` code.
-
-Every file in that folder should be a `.png`, with the filename as the amount of days remaining.
-
-The posts are posted from the `typescript` code every 24 hours.
-
-This code is run from a GitHub action in `.github/workflows`.
+- `python`: genereated the `images` folder.
+  - Every file should be a `.png`
+  - The filename is the amount of days remaining
+- `typescript` is what posts it. From the `.github/workflows` every 24 hours.
 
 ## Credits
 
