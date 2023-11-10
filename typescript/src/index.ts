@@ -51,7 +51,7 @@ const createdPost = await fetch(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`
 			embed: {
 				$type: "app.bsky.embed.images",
 				images: [{
-					alt: `${daysUntilChristmas} days until Christmas!`, //TODO: change this text to match the image's text
+					alt: `${daysUntilChristmas} days until Christmas!`,
 					image: createdBlob.blob
 				}]
 			}
