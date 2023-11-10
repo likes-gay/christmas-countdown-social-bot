@@ -12,11 +12,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        path: "typescript"
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
+      working-directory: typescript
       with:
         node-version: "20"
 
