@@ -22,5 +22,5 @@ This code is run from a GitHub action in `.github/workflows`.
 
 ## Credits
 
-- @Zoobdude - did the Python
-- @YummyBacon5 - created the TypeScript
+- [@Zoobdude](https://github.com/Zoobdude) - did the Python
+- [@YummyBacon5](https://github.com/YummyBacon5) - created the TypeScript
