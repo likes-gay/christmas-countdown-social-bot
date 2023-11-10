@@ -8,14 +8,8 @@ const BSKY_URL = "https://bsky.social";
 const todayDate = new Date();
 const christmasDate = new Date(todayDate.getFullYear(), 11, 25).getTime();
 
-const diffInMilliseconds = christmasDate - todayDate.getTime();
-const diffInDays = Math.ceil(diffInMilliseconds / (24 * 60 * 60 * 1000));
-
-const timeFormat = new Intl.RelativeTimeFormat("en-GB", { numeric: "auto" });
-const daysUntilChristmas = parseInt(
-	timeFormat.formatToParts(diffInDays, "day")
-		.find(x => x.type == "integer")!
-		.value
+const daysUntilChristmas = Math.ceil(
+	christmasDate - todayDate.getTime() / (24 * 60 * 60 * 1000)
 );
 
 async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
@@ -57,6 +51,15 @@ const createdBlob: UploadedBlobResponse = await fetchWithError(`${BSKY_URL}/xrpc
 	method: "POST"
 }).then(x => x.json());
 
+let postText: string;
+const daysText = `${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"}`;
+
+if(daysUntilChristmas) {
+	postText = `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysText} until Christmas!`;
+} else {
+	postText = `CHRISTMAS IS TODAY!\n\nMerry ${todayDate.getFullYear()} Christmas!`;
+}
+
 const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`, {
 	headers: {
 		Authorization: accessToken,
@@ -67,13 +70,13 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 		collection: "app.bsky.feed.post",
 		record: {
 			$type: "app.bsky.feed.post",
-			text: `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
+			text: postText,
 			createdAt: new Date().toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
 				images: [{
-					alt: `${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"} until Christmas!`,
+					alt: `${daysText} until Christmas!`,
 					image: createdBlob.blob
 				}]
 			}
