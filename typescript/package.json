@@ -9,7 +9,7 @@
 		"js": "node dist/index.js",
 		"build": "tsc"
 	},
-	"keywords": [],
+	"keywords": ["Bluesky", "bot", "Christmas", "countdown"],
 	"contributors": [
 		{
 			"name": "Yummy_Bacon5",
@@ -20,14 +20,13 @@
 			"url": "https://github.com/Zoobdude"
 		}
 	],
-	"license": "ISC",
+	"license": "Unlicense",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Zoobdude/bluesky-chrsitmas-countdown.git"
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.0",
-		"act": "^0.0.6",
 		"dotenv": "^16.3.1",
 		"typescript": "^5.2.2"
 	}
