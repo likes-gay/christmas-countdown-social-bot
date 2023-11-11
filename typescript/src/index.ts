@@ -9,7 +9,7 @@ const todayDate = new Date();
 const christmasDate = new Date(todayDate.getFullYear(), 11, 25).getTime();
 
 const daysUntilChristmas = Math.ceil(
-	christmasDate - todayDate.getTime() / (24 * 60 * 60 * 1000)
+	(christmasDate - todayDate.getTime()) / (24 * 60 * 60 * 1000)
 );
 
 async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
