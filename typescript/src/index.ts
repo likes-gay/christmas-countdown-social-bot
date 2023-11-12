@@ -1,4 +1,5 @@
 import { CreatedSessionResponse, CreatedPostResponse, UploadedBlobResponse, ErrorResponse, PostRecord, AuthTokens } from "./types";
+import core from "@actions/core";
 import path from "path";
 import fs from "fs";
 import "dotenv/config";
@@ -14,16 +15,18 @@ const daysUntilChristmas = Math.ceil(
 
 async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
 	const res = await fetch(url, ops);
+	if(res.ok) return res;
 
-	if(!res.ok) {
-		const resJson: ErrorResponse = await res.json();
+	const resJson: ErrorResponse = await res.json();
+	const errMessage = `Creating the post has failed!\nError type: \`${resJson.error}\`\nError message: \`${resJson.message}\``
 
-		console.error(`Creating the post has failed!\nError type: \`${resJson.error}\`\nError message: \`${resJson.message}\``);
-
-		process.exit(1);
+	if(process.env.GITHUB_ACTIONS == "true") {
+		core.setFailed(errMessage);
+	} else {
+		console.error(errMessage);
 	}
-
-	return res;
+	
+	process.exit(1);
 }
 
 const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.server.createSession`, {

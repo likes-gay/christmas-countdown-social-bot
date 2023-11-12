@@ -9,7 +9,12 @@
 		"js": "node dist/index.js",
 		"build": "tsc"
 	},
-	"keywords": ["Bluesky", "bot", "Christmas", "countdown"],
+	"keywords": [
+		"Bluesky",
+		"bot",
+		"Christmas",
+		"countdown"
+	],
 	"contributors": [
 		{
 			"name": "Yummy_Bacon5",
@@ -29,5 +34,8 @@
 		"@types/node": "^20.9.0",
 		"dotenv": "^16.3.1",
 		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"@actions/core": "^1.10.1"
 	}
 }
