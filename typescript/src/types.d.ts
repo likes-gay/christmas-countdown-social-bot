@@ -1,4 +1,4 @@
-export type SessionInfo = {
+export type CreatedSessionResponse = {
 	did: string;
 	didDoc: {
 		"@context": string[];
@@ -34,7 +34,7 @@ export type UploadedBlobResponse = {
 		ref: {
 			$link: string;
 		};
-		mimeType: "image/png" | string;
+		mimeType: string;
 		size: number;
 	};
 };

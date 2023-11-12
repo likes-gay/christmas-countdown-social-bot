@@ -1,4 +1,4 @@
-import { SessionInfo, CreatedPostResponse, UploadedBlobResponse, ErrorResponse, PostRecord, AuthTokens } from "./types";
+import { CreatedSessionResponse, CreatedPostResponse, UploadedBlobResponse, ErrorResponse, PostRecord, AuthTokens } from "./types";
 import path from "path";
 import fs from "fs";
 import "dotenv/config";
@@ -26,7 +26,7 @@ async function fetchWithError(url: string, ops?: RequestInit): Promise<Response>
 	return res;
 }
 
-const createdSession: SessionInfo = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.server.createSession`, {
+const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.server.createSession`, {
 	headers: {
 		"Content-Type": "application/json"
 	},
