@@ -57,10 +57,13 @@ const createdBlob: UploadedBlobResponse = await fetchWithError(`${BSKY_URL}/xrpc
 let postText: string;
 const daysText = `${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"}`;
 
-if(daysUntilChristmas) {
-	postText = `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysText} until Christmas!`;
+const christmasEmojis = ["🎄", "🎅", "🎁", "❄️", "⛄", "🔔", "🕯️", "🌟", "🎉", "🦌", "🤶", "🍪", "🥛", "🎶", "👼", "🍭", "🎀", "🦌", "🏡", "🌲", "🍬", "🧦", "🎊", "🛷", "🔥", "🎁"];
+const twoRandomEmojis = `${christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)]}${christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)]}`;
+
+if(daysUntilChristmas !== 0) {
+	postText = `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysText} until Christmas! ${twoRandomEmojis}`;
 } else {
-	postText = `CHRISTMAS IS TODAY!\n\nMerry ${todayDate.getFullYear()} Christmas!`;
+	postText = `CHRISTMAS IS TODAY!\n\nMerry ${todayDate.getFullYear()} Christmas! ${twoRandomEmojis}`;
 }
 
 const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`, {
