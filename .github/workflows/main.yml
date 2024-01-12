@@ -12,16 +12,16 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
-    - name: Install Node.js
+        
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: "20"
 
-    - name: Install dependencies
+    - name: Install npm dependencies
       run: npm install
       working-directory: typescript
-
+        
     - name: Compile TypeScript
       run: npm run build
       working-directory: typescript
@@ -30,5 +30,36 @@ jobs:
       run: npm run js
       working-directory: typescript
       env:
-        HANDLE: ${{ secrets.HANDLE }}
+        HANDLE: ${{ env.HANDLE }}
         PASSWORD: ${{ secrets.PASSWORD }}
+
+      
+      # Python section
+    
+    - name: Download a single artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.8"
+      
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r python/requirements.txt
+    
+    - name: Run Python script
+      run: |
+        python python/main.py
+      env:
+        UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
+
+    - name: Upload Log of Images used
+      uses: actions/upload-artifact@v2
+      with:
+        name: image_log
+        path: ./python/image_log.txt
+

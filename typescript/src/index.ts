@@ -41,14 +41,14 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 }).then(x => x.json());
 
 const imageFileRead = fs.readFileSync(
-	path.resolve(`./../images/${daysUntilChristmas}.png`)
+	path.resolve(`./../images/currentImage.png`)
 );
 const accessToken = "Bearer " + createdSession.accessJwt;
 
 const createdBlob: UploadedBlobResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.repo.uploadBlob`, {
 	headers: {
 		Authorization: accessToken,
-		"Content-Type": "image/x-png"
+		"Content-Type": "image/png"
 	},
 	body: imageFileRead,
 	method: "POST"
@@ -92,4 +92,3 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 }).then(x => x.json());
 
 console.log(`Post created!\nLink: https://bsky.app/profile/${createdSession.handle}/post/${createdPost.uri.split("/").at(-1)}`);
-process.exit(0);

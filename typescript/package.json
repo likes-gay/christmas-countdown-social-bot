@@ -6,7 +6,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "tsc && node dist/index.js",
-		"js": "node dist/index.js",
+		"lint": "eslint .",
 		"build": "tsc"
 	},
 	"keywords": [
@@ -32,7 +32,10 @@
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.0",
+		"@typescript-eslint/eslint-plugin": "^6.18.1",
+		"@typescript-eslint/parser": "^6.18.1",
 		"dotenv": "^16.3.1",
+		"eslint": "^8.56.0",
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
