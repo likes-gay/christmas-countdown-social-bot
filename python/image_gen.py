@@ -76,20 +76,20 @@ text_on_image =	ImageDraw.Draw(cur_img)
 
 # set font size based on number of days
 if len(str(current_days_till_christmas)) == 1:
-	font = ImageFont.truetype("./python/fonts/Candcu__.ttf", 450)
+	font = ImageFont.truetype("./fonts/Candcu__.ttf", 450)
 
 elif len(str(current_days_till_christmas)) == 2:
-	font = ImageFont.truetype("./python/fonts/Candcu__.ttf", 400)
+	font = ImageFont.truetype("./fonts/Candcu__.ttf", 400)
 
 else:
-	font = ImageFont.truetype("./python/fonts/Candcu__.ttf", 320)
+	font = ImageFont.truetype("./fonts/Candcu__.ttf", 320)
 
 # draw number on image
 text_on_image.text((width/2, height/2),	str(current_days_till_christmas+1),	font=font, anchor="mm")
 
 # currently not working 
 #draw "Days	until Christmas" on image
-font = ImageFont.truetype("./python/fonts/Smiling.otf", 50)
+font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
 if current_days_till_christmas+1 == 1:
 	text_on_image.text((width/2, height/2 + 200), "Day until Christmas!", font=font, anchor="mm")
