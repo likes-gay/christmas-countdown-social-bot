@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.8"
-  
 
     - name: Install Python dependencies
       run: |
@@ -31,10 +30,10 @@ jobs:
       working-directory: python
     
     - name: Run Python script
-      run: |
-        python python/main.py
+      run: python image_gen.py
       env:
         UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
+      working-directory: python
 
     #- name: Upload Log of Images used
       #uses: actions/upload-artifact@v2
@@ -42,9 +41,9 @@ jobs:
         #name: image_log
         #path: ./python/image_log.txt
     
-    # TypeScript section
 
-        
+    # TypeScript section
+  
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
