@@ -1,8 +1,7 @@
 import datetime, os
 from io import BytesIO
-import webbrowser
 from PIL import	Image, ImageFilter,	ImageDraw, ImageFont, ImageEnhance
-from random	import choice, shuffle
+from random	import choice
 import requests
 
 def	days_till_christmas():
@@ -90,15 +89,14 @@ text_on_image.text((width/2, height/2),	str(current_days_till_christmas+1),	font
 
 # currently not working 
 #draw "Days	until Christmas" on image
-font = ImageFont.truetype("./python/fonts/Smiling.otf", 36)
+font = ImageFont.truetype("./python/fonts/Smiling.otf", 50)
 
 if current_days_till_christmas+1 == 1:
-	text_on_image.text((width/2, height/2 +	450), "Day until Christmas!", font=font, anchor="mm")
+	text_on_image.text((width/2, height/2 + 200), "Day until Christmas!", font=font, anchor="mm")
 else:	
-	text_on_image.text((width/2, height/2 +	450), "Days	until Christmas!", font=font, anchor="mm")
+	text_on_image.text((width/2, height/2 +	200), "Days	until Christmas!", font=font, anchor="mm")
 	
 # save image
-cur_img.save(f"./currentImage.png")
-	
+cur_img.save(f"../currentImage.png")
 	
 # https://stackoverflow.com/questions/1970807/center-middle-align-text-with-pil'''
