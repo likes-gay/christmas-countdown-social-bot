@@ -99,4 +99,4 @@ else:
 # save image
 cur_img.save(f"../currentImage.png")
 	
-# https://stackoverflow.com/questions/1970807/center-middle-align-text-with-pil'''
+# https://stackoverflow.com/questions/1970807/center-middle-align-text-with-pils
