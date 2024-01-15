@@ -32,7 +32,7 @@ jobs:
     - name: Run Python script
       run: python image_gen.py
       env:
-        UNSPLASH_API_KEY: ${{ secrets.UNSPLASH_API_KEY }}
+        UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       working-directory: python
 
     #- name: Upload Log of Images used
