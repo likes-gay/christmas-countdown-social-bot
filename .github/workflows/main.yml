@@ -58,7 +58,7 @@ jobs:
       working-directory: typescript
 
     - name: Create post
-      run: npm run js
+      run: npm run start
       working-directory: typescript
       env:
         HANDLE: ${{ env.HANDLE }}
