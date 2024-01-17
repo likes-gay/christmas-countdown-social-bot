@@ -41,7 +41,7 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 }).then(x => x.json());
 
 const imageFileRead = fs.readFileSync(
-	path.resolve(`./../images/currentImage.png`)
+	path.resolve(`./../currentImage.png`)
 );
 const accessToken = "Bearer " + createdSession.accessJwt;
 

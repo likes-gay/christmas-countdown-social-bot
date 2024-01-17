@@ -12,11 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    # Python section
-    #- name: Download a single artifact
-      #uses: actions/download-artifact@v3
-      #with:
-        #name: image_log
 
     - name: Setup Python
       uses: actions/setup-python@v2
@@ -28,6 +23,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
       working-directory: python
+
+    - name: Download Image Log file
+      uses: actions/download-artifact@v2
+      with:
+        name: image_log
+        path: ./image_log.txt
+      working-directory: python
     
     - name: Run Python script
       run: python image_gen.py
@@ -35,15 +37,15 @@ jobs:
         UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       working-directory: python
 
-    #- name: Upload Log of Images used
-      #uses: actions/upload-artifact@v2
-      #with:
-        #name: image_log
-        #path: ./python/image_log.txt
+    - name: Upload Image Log file
+      uses: actions/upload-artifact@v2
+      with:
+        name: image_log
+        path: ./image_log.txt
+      working-directory: python
     
 
     # TypeScript section
-  
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
