@@ -105,7 +105,6 @@ else:
 # draw number on image
 text_on_image.text((width/2, height/2),	str(days_till_christmas), font=font, anchor="mm")
 
-# currently not working 
 #draw "Days	until Christmas" on image
 font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
