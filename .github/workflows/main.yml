@@ -28,8 +28,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: image_log
-        path: ./image_log.txt
-      working-directory: python
+        path: ./python/image_log.txt
     
     - name: Run Python script
       run: python image_gen.py
@@ -41,9 +40,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: image_log
-        path: ./image_log.txt
-      working-directory: python
-    
+        path: ./python/image_log.txt
 
     # TypeScript section
     - name: Setup Node.js
