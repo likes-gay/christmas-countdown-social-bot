@@ -26,6 +26,7 @@ jobs:
 
     - name: Download Image Log file
       uses: actions/download-artifact@v4
+      continue-on-error: true
       with:
         name: image_log
         path: ./python/image_log.txt
