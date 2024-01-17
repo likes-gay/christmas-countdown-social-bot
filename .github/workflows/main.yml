@@ -25,7 +25,7 @@ jobs:
       working-directory: python
 
     - name: Download Image Log file
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: image_log
         path: ./python/image_log.txt
@@ -37,7 +37,7 @@ jobs:
       working-directory: python
 
     - name: Upload Image Log file
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: image_log
         path: ./python/image_log.txt
