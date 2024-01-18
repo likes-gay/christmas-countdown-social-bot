@@ -22,12 +22,11 @@ async function fetchWithError(url: string, ops?: RequestInit): Promise<Response>
 	if(res.ok) return res;
 
 	const resJson: ErrorResponse = await res.json();
-	const errMessage = `Creating the post has failed!\nError type: \`${resJson.error}\`\nError message: \`${resJson.message}\``
 
 	if(process.env.GITHUB_ACTIONS == "true") {
-		core.setFailed(errMessage);
+		core.setFailed(resJson.toString());
 	} else {
-		console.error(errMessage);
+		console.error(resJson);
 	}
 	
 	process.exit(1);
