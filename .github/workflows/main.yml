@@ -60,7 +60,7 @@ jobs:
 
     - name: Create post
       run: npm run start
-      working-directory: typescript
       env:
         HANDLE: ${{ vars.HANDLE }}
         PASSWORD: ${{ secrets.PASSWORD }}
+      working-directory: typescript
