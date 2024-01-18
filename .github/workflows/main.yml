@@ -62,5 +62,5 @@ jobs:
       run: npm run start
       env:
         HANDLE: ${{ vars.HANDLE }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        PASSWORD: ${{ secrets.BSKY_PASSWORD }}
       working-directory: typescript
