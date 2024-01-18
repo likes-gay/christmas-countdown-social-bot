@@ -11,7 +11,7 @@ jobs:
 
     env:
       HANDLE: ${{ vars.HANDLE }}
-      BSKY_PASSWORD: ${{ secret.BSKY_PASSWORD }}
+      BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
 
     steps:
     - name: Checkout repository
