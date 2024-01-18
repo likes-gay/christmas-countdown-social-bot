@@ -29,7 +29,7 @@ async function fetchWithError(url: string, ops?: RequestInit): Promise<Response>
 	};
 
 	if(process.env.GITHUB_ACTIONS == "true") {
-		core.setFailed(errorMsg.toString());
+		core.setFailed(JSON.stringify(errorMsg));
 	} else {
 		console.error(errorMsg);
 	}
