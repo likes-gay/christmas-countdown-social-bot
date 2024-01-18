@@ -57,6 +57,14 @@ jobs:
       run: npm run build
       working-directory: typescript
 
+    - name: Test environment variables
+      run: |
+        echo $HANDLE
+        echo $PASSWORD
+      env:
+        HANDLE: ${{ env.HANDLE }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+
     - name: Create post
       run: npm run start
       working-directory: typescript
