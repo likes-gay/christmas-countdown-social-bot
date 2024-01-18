@@ -63,7 +63,3 @@ jobs:
       env:
         HANDLE: ${{ vars.HANDLE }}
         PASSWORD: ${{ secrets.PASSWORD }}
-
-      
-
-
