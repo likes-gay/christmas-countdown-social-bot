@@ -1,0 +1,17 @@
+name: Test env
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-post:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test env
+      run: |
+       echo $HANDLE $PASSWORD
+    env:
+      HANDLE: ${{ vars.HANDLE }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+	
