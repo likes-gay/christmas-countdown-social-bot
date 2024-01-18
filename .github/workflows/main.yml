@@ -9,10 +9,6 @@ jobs:
   create-post:
     runs-on: ubuntu-latest
 
-    env:
-      HANDLE: ${{ vars.HANDLE }}
-      BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -60,4 +56,7 @@ jobs:
 
     - name: Create post
       run: npm run start
+      env:
+        HANDLE: ${{ vars.HANDLE }}
+        PASSWORD: ${{ secrets.PASSWORD }}
       working-directory: typescript

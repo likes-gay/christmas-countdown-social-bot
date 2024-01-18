@@ -4,10 +4,6 @@ import path from "path";
 import fs from "fs";
 import "dotenv/config";
 
-console.log("Handle: ", process.env.HANDLE);
-console.log("Password: ", process.env.BSKY_PASSWORD);
-console.log(process.env);
-
 const BSKY_URL = "https://bsky.social";
 
 const todayDate = new Date();
@@ -43,7 +39,7 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 	},
 	body: JSON.stringify({
 		identifier: process.env.HANDLE!,
-		password: process.env.BSKY_PASSWORD!
+		password: process.env.PASSWORD!
 	} as AuthTokens),
 	method: "POST"
 }).then(x => x.json());
