@@ -28,7 +28,7 @@
 	"license": "Unlicense",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Zoobdude/bluesky-chrsitmas-countdown.git"
+		"url": "https://github.com/likes-gay/bluesky-chrsitmas-countdown.git"
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.0",
