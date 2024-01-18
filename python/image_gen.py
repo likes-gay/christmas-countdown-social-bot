@@ -5,12 +5,10 @@ from random	import choice
 import requests
 
 
-today_date = datetime.now()
-christmas_date = datetime(today_date.year, 12, 25)
+today_date = datetime.date.today()
+christmas_date = datetime.date(today_date.year, 12, 25)
 
 days_until_christmas = (christmas_date - today_date).days
-if (christmas_date - today_date).seconds > 0:
-    days_until_christmas += 1
 print("There are", days_until_christmas, "days until Christmas!")
 
 def get_image():
