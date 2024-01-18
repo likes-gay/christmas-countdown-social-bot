@@ -4,6 +4,9 @@ import path from "path";
 import fs from "fs";
 import "dotenv/config";
 
+console.log(process.env);
+console.log(process);
+
 const BSKY_URL = "https://bsky.social";
 
 const todayDate = new Date();
