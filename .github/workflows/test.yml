@@ -12,6 +12,5 @@ jobs:
       run: |
        echo $HANDLE $PASSWORD
     env:
-      HANDLE: ${{ vars.HANDLE }}
-      PASSWORD: ${{ secrets.PASSWORD }}
-	
+        HANDLE: ${{ vars.HANDLE }}
+        PASSWORD: ${{ secrets.PASSWORD }}
