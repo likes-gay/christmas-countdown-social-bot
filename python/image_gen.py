@@ -5,17 +5,13 @@ from random	import choice
 import requests
 
 
-# get current date
-now	= datetime.datetime.now()
+today_date = datetime.now()
+christmas_date = datetime(today_date.year, 12, 25)
 
-# if has passed, get next year's christmas
-if now.month == 12 and now.day > 25:
-	christmas =	datetime.datetime(now.year +1, 12, 25)
-else:
-	christmas =	datetime.datetime(now.year,	12,	25)
-
-days_till_christmas = (christmas - now).days
-print("There are", days_till_christmas, "days until Christmas!")
+days_until_christmas = (christmas_date - today_date).days
+if (christmas_date - today_date).seconds > 0:
+    days_until_christmas += 1
+print("There are", days_until_christmas, "days until Christmas!")
 
 def get_image():
 	SEARCH_TERMS = ["Christmas", "Christmas	wallpaer", "Christmas background", "Santa",	"Xmas"]
@@ -93,22 +89,22 @@ cur_img	= enhancer.enhance(0.8)	 # reduce brightness to 80%
 text_on_image =	ImageDraw.Draw(cur_img)
 
 # set font size based on number of days
-if len(str(days_till_christmas)) == 1:
+if len(str(days_until_christmas)) == 1:
 	font = ImageFont.truetype("./fonts/Candcu__.ttf", 450)
 
-elif len(str(days_till_christmas)) == 2:
+elif len(str(days_until_christmas)) == 2:
 	font = ImageFont.truetype("./fonts/Candcu__.ttf", 400)
 
 else:
 	font = ImageFont.truetype("./fonts/Candcu__.ttf", 320)
 
 # draw number on image
-text_on_image.text((width/2, height/2),	str(days_till_christmas), font=font, anchor="mm")
+text_on_image.text((width/2, height/2),	str(days_until_christmas), font=font, anchor="mm")
 
 #draw "Days	until Christmas" on image
 font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
-text_on_image.text((width/2, height/2 +	200), "Days	until Christmas!" if days_till_christmas != 1 else "Day until Christmas!", font=font, anchor="mm")
+text_on_image.text((width/2, height/2 +	200), "Days	until Christmas!" if days_until_christmas != 1 else "Day until Christmas!", font=font, anchor="mm")
 
 # save image
 cur_img.save(f"../currentImage.png")

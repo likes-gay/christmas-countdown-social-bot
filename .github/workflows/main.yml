@@ -1,9 +1,8 @@
 name: Post every 24 hours
 
 on:
-#  schedule:
-#    - cron: "0 0 * * *"
-  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # every 24 hours
 
 jobs:
   create-post:
