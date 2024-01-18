@@ -22,11 +22,16 @@ async function fetchWithError(url: string, ops?: RequestInit): Promise<Response>
 	if(res.ok) return res;
 
 	const resJson: ErrorResponse = await res.json();
+	const errorMsg = {
+		url,
+		reqBody: ops?.body,
+		resBody: resJson,
+	};
 
 	if(process.env.GITHUB_ACTIONS == "true") {
-		core.setFailed(resJson.toString());
+		core.setFailed(errorMsg.toString());
 	} else {
-		console.error(resJson);
+		console.error(errorMsg);
 	}
 	
 	process.exit(1);
