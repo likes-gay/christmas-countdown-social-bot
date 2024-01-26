@@ -9,13 +9,11 @@ The [`typescript`](https://github.com/likes-gay/bluesky-chrsitmas-countdown/tree
 
 Both scripts are then run from a [GitHub Action](https://github.com/likes-gay/bluesky-chrsitmas-countdown/blob/main/.github/workflows/main.yml) every 24 hours.
 
-
 ## Account Link
 
 The account is **[@xmas-countdown.bsky.social](https://bsky.app/profile/xmas-countdown.bsky.social)**, drop it a follow ;)
 
 Link: https://bsky.app/profile/xmas-countdown.bsky.social
-
 
 ## Credits
 
