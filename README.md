@@ -11,9 +11,9 @@ Both scripts are then run from a [GitHub Action](https://github.com/likes-gay/bl
 
 ## Account Link
 
-The account is **[@xmas-countdown.bsky.social](https://bsky.app/profile/xmas-countdown.bsky.social)**, drop it a follow ;)
+The account is **[@xmas-countdown.likes.gay](https://bsky.app/profile/xmas-countdown.likes.gay)**, drop it a follow ;)
 
-Link: https://bsky.app/profile/xmas-countdown.bsky.social
+Link: https://bsky.app/profile/xmas-countdown.likes.gay
 
 ## Credits
 
