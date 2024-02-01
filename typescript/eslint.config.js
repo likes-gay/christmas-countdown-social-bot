@@ -3,7 +3,7 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 
 export default [
 	{
-		files: ["*.ts", "*.js"],
+		files: ["**/*.ts", "**/*.js"],
 		ignores: ["node_modules/**/*"],
 		languageOptions: {
 			parser: tsParser,
@@ -23,7 +23,7 @@ export default [
 				"error",
 				"unix",
 			],
-			"quotes": [
+			quotes: [
 				"error",
 				"double",
 			],
