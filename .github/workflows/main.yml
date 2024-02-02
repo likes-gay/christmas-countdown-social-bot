@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * *" # every 24 hours
 
 jobs:
-  create-post:
+  create-post-image:
     runs-on: ubuntu-latest
 
     steps:
@@ -42,8 +42,21 @@ jobs:
       with:
         name: image_log
         path: ./python/image_log.txt
+    
+    - name: Upload post image to artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: post_image
+        path: currentImage.png
+  
+  post-to-bsky:
+    runs-on: ubuntu-latest
+    needs:  create-post-image
 
-    # TypeScript section
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -52,6 +65,13 @@ jobs:
     - name: Install npm dependencies
       run: npm install
       working-directory: typescript
+        
+    - name: Download post image
+      uses: actions/download-artifact@v4
+      with:
+        name: post_image
+        if_no_artifact_found: error
+
 
     - name: Create post
       run: npm run start
