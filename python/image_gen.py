@@ -16,7 +16,7 @@ def get_image():
 
 	response = requests.get("https://api.unsplash.com/photos/random",
 			params={
-			"client_id": "l2gRO5RetpzwMs2ziLRMEPUqZwQ5BRGYpmBckkut7GI", #os.getenv("UNSPLASH_ACCESS_KEY"),
+			"client_id": os.getenv("UNSPLASH_CLIENT_ID"),
 			"query": (search_term := choice(SEARCH_TERMS)),
 			"orientation": "squarish",
 			"content_filter": "high"
