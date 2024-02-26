@@ -1,4 +1,4 @@
-# Bluesky Chrsitmas Countdown
+# Chrsitmas Countdown Social Bot
 
 This is a Christmas countdown bot. It posts an image with how many days are left until Christmas, on [Bluesky](https://bsky.app), each day.
 
