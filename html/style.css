@@ -8,7 +8,7 @@ body {
 
 nav {
     display: flex;
-    padding: 2rem;
+    padding: 2.2rem;
     align-items: center;
     justify-content: space-between;
     inset: 0 0 auto 0;
@@ -36,4 +36,11 @@ h1 {
 
 main {
     padding: 2rem;
+}
+
+address {
+    padding: 2rem;
+    text-align: center;
+    font-style: normal;
+    color: darkblue;
 }
