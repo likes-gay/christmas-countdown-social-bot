@@ -10,11 +10,10 @@ Then, it is fed to the [Python Pillow Library](https://pypi.org/project/pillow/)
 
 Both scripts are then run from a [GitHub Action](https://github.com/likes-gay/bluesky-chrsitmas-countdown/blob/main/.github/workflows/main.yml) every 24 hours.
 
-## Account Link
+## Account Links
 
-The account is **[@xmas-countdown.likes.gay](https://bsky.app/profile/xmas-countdown.likes.gay)**, drop it a follow ;)
-
-Link: https://bsky.app/profile/xmas-countdown.likes.gay
+## Bluesky
+[@xmas-countdown.likes.gay](https://bsky.app/profile/xmas-countdown.likes.gay)
 
 ## Credits
 
