@@ -1,0 +1,47 @@
+import os, time
+import requests
+
+IG_USER_ID = os.getenv("IG_USER_ID")
+ACSESS_TOKEN = os.getenv("ACCESS_TOKEN")
+
+IMAGE_URL = 'https://url.com/image.jpg'
+ENDPOINT = f'https://graph.instagram.com/{IG_USER_ID}'
+
+#WORK IN PROGRESS - https://developers.facebook.com/docs/threads/posts#single-thread-posts
+
+def create_media_container():
+    response = requests.post(f"{ENDPOINT}/threads",
+                             params={
+                                 "image_url":IMAGE_URL,
+                                 "media_type":"IMAGE",
+                                 
+                                 "access_token":ACSESS_TOKEN
+                             }
+    )
+    
+    if response.status_code != 200:
+        raise Exception(f"Failed to create media container: {response.json()}")
+    
+    return response.json()['id']
+
+def publish_media_container(media_id):
+    response = requests.post(f"{ENDPOINT}/threads_publish",
+                             params={
+                                 "creation_id":media_id,
+                                 
+                                 "access_token":ACSESS_TOKEN
+                             }
+    )
+    
+    if response.status_code != 200:
+        raise Exception(f"Failed to publish media container: {response.json()}")
+    
+    return response.json()
+
+media_container_id = create_media_container()
+
+time.sleep(30)
+# "It is recommended to wait on average 30 seconds before publishing a Threads media container
+# to give our server enough time to fully process the upload."
+
+publish_media_container(media_container_id)
