@@ -78,10 +78,11 @@ jobs:
     - name: Upload website to artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: html/
+        path: ./html
 
     - name: Deploy website
-      uses: actions/deploy-pages@v3
+      id: web-deployment
+      uses: actions/deploy-pages@v4
 
     
 
