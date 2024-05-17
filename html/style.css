@@ -49,7 +49,12 @@ main {
 
 .countdown-container img {
     border-radius: 20px;
-    height: 35vh;
+    height: 40vh;
+}
+
+.todo-table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 address {
