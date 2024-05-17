@@ -78,13 +78,11 @@ jobs:
     - name: Upload website to artifact
       uses: actions/upload-artifact@v4
       with:
-        name: website
+        name: github-pages
         path: html/
 
     - name: Deploy website
       uses: actions/deploy-pages@v3
-      with:
-        artifact_name: website
 
     
 
