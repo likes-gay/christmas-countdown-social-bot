@@ -76,9 +76,8 @@ jobs:
       run: cp currentImage.png ./html/
 
     - name: Upload website to artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: github-pages
         path: html/
 
     - name: Deploy website
