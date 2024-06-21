@@ -18,7 +18,7 @@ All the scripts are then run from a [GitHub Action](https://github.com/likes-gay
 [@xmas-countdown.likes.gay](https://bsky.app/profile/xmas-countdown.likes.gay)
 
 ## Threads
-## [@daily_xmas_countdown](https://www.threads.net/@daily_xmas_countdown)
+[@daily_xmas_countdown](https://www.threads.net/@daily_xmas_countdown)
 
 ## Credits
 
