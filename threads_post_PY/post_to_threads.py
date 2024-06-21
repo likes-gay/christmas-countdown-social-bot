@@ -1,8 +1,8 @@
 import os, time
 import requests
 
-THREADS_USER_ID = os.getenv("IG_THREADS_USER_ID")
-THREADS_THREADS_ACSESS_TOKEN = os.getenv("ACCESS_TOKEN")
+THREADS_USER_ID = os.getenv("THREADS_USER_ID")
+THREADS_THREADS_ACSESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN")
 
 IMAGE_URL = "https://xmas-countdown.likes.gay/currentImage.png"
 ENDPOINT = f"https://graph.threads.net/v1.0/{THREADS_USER_ID}"
