@@ -2,16 +2,10 @@ import { CreatedSessionResponse, CreatedPostResponse, UploadedBlobResponse, Erro
 import core from "@actions/core";
 import path from "path";
 import fs from "fs";
+import ExifReader from 'exifreader';
 import "dotenv/config";
 
 const BSKY_URL = "https://bsky.social";
-
-const todayDate = new Date();
-const christmasDate = new Date(todayDate.getFullYear(), 11, 25).getTime();
-
-const daysUntilChristmas = Math.ceil(
-	(christmasDate - todayDate.getTime()) / (24 * 60 * 60 * 1000),
-);
 
 async function fetchWithError(url: string, ops?: RequestInit): Promise<Response> {
 	const res = await fetch(url, ops);
@@ -47,6 +41,12 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 const imageFileRead = fs.readFileSync(
 	path.resolve("./../currentImage.png"),
 );
+
+const tags = ExifReader.load(imageFileRead);
+
+const caption = tags['caption'].description;
+const numDays = tags['days_until_christmas'].description;
+
 const accessToken = "Bearer " + createdSession.accessJwt;
 
 const createdBlob: UploadedBlobResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.repo.uploadBlob`, {
@@ -58,18 +58,6 @@ const createdBlob: UploadedBlobResponse = await fetchWithError(`${BSKY_URL}/xrpc
 	method: "POST",
 }).then(x => x.json());
 
-let postText: string;
-const daysText = `${daysUntilChristmas} ${daysUntilChristmas == 1 ? "day" : "days"}`;
-
-const christmasEmojis = ["🎄", "🎅", "🎁", "❄️", "⛄", "🔔", "🕯️", "🌟", "🎉", "🦌", "🤶", "🍪", "🥛", "🎶", "👼", "🍭", "🎀", "🦌", "🏡", "🌲", "🍬", "🧦", "🎊", "🛷", "🔥", "🎁"];
-const twoRandomEmojis = `${christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)]}${christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)]}`;
-
-if(daysUntilChristmas !== 0) {
-	postText = `There ${daysUntilChristmas == 1 ? "is" : "are"} ${daysText} until Christmas! ${twoRandomEmojis}`;
-} else {
-	postText = `CHRISTMAS IS TODAY!\n\nMerry ${todayDate.getFullYear()} Christmas! ${twoRandomEmojis}`;
-}
-
 const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/com.atproto.repo.createRecord`, {
 	headers: {
 		Authorization: accessToken,
@@ -80,13 +68,13 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 		collection: "app.bsky.feed.post",
 		record: {
 			$type: "app.bsky.feed.post",
-			text: postText,
+			text: caption,
 			createdAt: new Date().toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
 				images: [{
-					alt: `${daysText} until Christmas!`,
+					alt: `${numDays} until Christmas!`,
 					image: createdBlob.blob,
 				}],
 			},
