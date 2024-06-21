@@ -1,8 +1,9 @@
-import os, time
+import os
+import time
 import requests
 
 THREADS_USER_ID = os.getenv("THREADS_USER_ID")
-THREADS_ACSESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN")
+THREADS_ACCESS_TOKEN = os.getenv("THREADS_ACCESS_TOKEN")
 
 IMAGE_URL = "https://xmas-countdown.likes.gay/currentImage.png"
 ENDPOINT = f"https://graph.threads.net/v1.0/{THREADS_USER_ID}"
@@ -14,13 +15,13 @@ def create_media_container():
                              params={
                                  "image_url": IMAGE_URL,
                                  "media_type": "IMAGE",
-                                 "access_token": THREADS_ACSESS_TOKEN,
+                                 "access_token": THREADS_ACCESS_TOKEN,
                              },
                              timeout=30
     )
     
     if response.status_code != 200:
-        raise Exception(f"Failed to create media container: {response.json()}")
+        raise requests.exceptions.HTTPError(f"Failed to create media container: {response.json()}")
     
     return response.json()["id"]
 
@@ -28,13 +29,13 @@ def publish_media_container(media_id):
     response = requests.post(f"{ENDPOINT}/threads_publish",
                              params={
                                  "creation_id": media_id,
-                                 "access_token": THREADS_ACSESS_TOKEN
+                                 "access_token": THREADS_ACCESS_TOKEN
                              },
                              timeout=30
     )
     
     if response.status_code != 200:
-        raise Exception(f"Failed to publish media container: {response.json()}")
+        raise requests.exceptions.HTTPError(f"Failed to publish media container: {response.json()}")
     
     return response.json()
 
