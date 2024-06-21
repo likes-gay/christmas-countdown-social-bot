@@ -1,6 +1,7 @@
 import datetime, os, json
 from io import BytesIO
 from PIL import Image, ImageFilter, ImageDraw, ImageFont, ImageEnhance
+from PIL.PngImagePlugin import PngInfo
 from random import choice
 import requests
 
@@ -104,5 +105,19 @@ font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
 text_on_image.text((width/2, height/2 + 200), "Days until Christmas!" if days_until_christmas != 1 else "Day until Christmas!", font=font, anchor="mm")
 
+# Create caption for image
+
+CHRISTMAS_EMOJIS = ["🎄", "🎅", "🎁", "❄️", "⛄", "🔔", "🕯️",
+                    "🌟", "🎉", "🦌", "🤶", "🍪", "🥛", "🎶",
+                    "👼", "🍭", "🎀", "🦌", "🏡", "🌲", "🍬",
+                    "🧦", "🎊", "🛷", "🔥", "🎁"]
+
+caption = f"There are {days_until_christmas} days until Christmas! {choice(CHRISTMAS_EMOJIS)}{choice(CHRISTMAS_EMOJIS)}"
+
+metadata = PngInfo()
+metadata.add_text("caption", caption)
+metadata.add_text("days_until_christmas", str(days_until_christmas))
+
+
 # save image
-cur_img.save(f"../currentImage.png")
+cur_img.save(f"../currentImage.png", pnginfo=metadata)
