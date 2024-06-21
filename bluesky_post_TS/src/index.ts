@@ -38,8 +38,8 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 		"Content-Type": "application/json",
 	},
 	body: JSON.stringify({
-		identifier: process.env.HANDLE!,
-		password: process.env.PASSWORD!,
+		identifier: process.env.BSKY_HANDLE!,
+		password: process.env.BSKY_PASSWORD!,
 	} as AuthTokens),
 	method: "POST",
 }).then(x => x.json());

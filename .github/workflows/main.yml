@@ -112,6 +112,6 @@ jobs:
     - name: Create post
       run: npm run start
       env:
-        HANDLE: ${{ vars.HANDLE }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        BSKY_HANDLE: ${{ vars.BSKY_HANDLE }}
+        BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
       working-directory: bluesky_post_TS
