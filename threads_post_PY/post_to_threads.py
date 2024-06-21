@@ -1,11 +1,11 @@
 import os, time
 import requests
 
-USER_ID = os.getenv("IG_USER_ID")
-ACSESS_TOKEN = os.getenv("ACCESS_TOKEN")
+THREADS_USER_ID = os.getenv("IG_THREADS_USER_ID")
+THREADS_THREADS_ACSESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
 IMAGE_URL = "https://xmas-countdown.likes.gay/currentImage.png"
-ENDPOINT = f"https://graph.threads.net/v1.0/{USER_ID}"
+ENDPOINT = f"https://graph.threads.net/v1.0/{THREADS_USER_ID}"
 
 #WORK IN PROGRESS - https://developers.facebook.com/docs/threads/posts#single-thread-posts
 
@@ -14,7 +14,7 @@ def create_media_container():
                              params={
                                  "image_url": IMAGE_URL,
                                  "media_type": "IMAGE",
-                                 "access_token": ACSESS_TOKEN,
+                                 "access_token": THREADS_ACSESS_TOKEN,
                              },
                              timeout=30
     )
@@ -28,7 +28,7 @@ def publish_media_container(media_id):
     response = requests.post(f"{ENDPOINT}/threads_publish",
                              params={
                                  "creation_id": media_id,
-                                 "access_token": ACSESS_TOKEN
+                                 "access_token": THREADS_ACSESS_TOKEN
                              },
                              timeout=30
     )
