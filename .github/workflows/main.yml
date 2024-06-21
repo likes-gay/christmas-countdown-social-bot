@@ -143,3 +143,4 @@ jobs:
       env:
         THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+      working-directory: threads_post_PY
