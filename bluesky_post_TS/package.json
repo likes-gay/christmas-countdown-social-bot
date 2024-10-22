@@ -1,5 +1,5 @@
 {
-	"name": "bluesky-chrsitmas-countdown",
+	"name": "christmas-countdown-social-bot",
 	"version": "1.0.0",
 	"description": "Christmas Countdown BlueSky Bot",
 	"type": "module",
@@ -27,7 +27,7 @@
 	"license": "Unlicense",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/likes-gay/bluesky-chrsitmas-countdown.git"
+		"url": "https://github.com/likes-gay/christmas-countdown-social-bot.git"
 	},
 	"devDependencies": {
 		"@types/node": "^20.9.0",

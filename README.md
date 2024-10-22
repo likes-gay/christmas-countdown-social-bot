@@ -10,7 +10,7 @@ Then, it is fed to the [Python Pillow Library](https://pypi.org/project/pillow/)
 
 [`threads_post_PY`](https://github.com/likes-gay/christmas-countdown-social-bot/tree/main/threads_post_PY) uses the [Threads API](https://developers.facebook.com/docs/threads/) to post the image made on the first step.
 
-All the scripts are then run from a [GitHub Action](https://github.com/likes-gay/bluesky-chrsitmas-countdown/blob/main/.github/workflows/main.yml) every 24 hours.
+All the scripts are then run from a [GitHub Action](https://github.com/likes-gay/christmas-countdown-social-bot/blob/main/.github/workflows/main.yml) every 24 hours.
 
 ## Account Links
 
