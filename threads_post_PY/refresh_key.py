@@ -20,6 +20,6 @@ def extend_access_token(THREADS_ACCESS_TOKEN):
     return r.json()["access_token"]
 
 
-ACCSESS_TOKEN = input("Enter your Threads access token: ")
-
-print(extend_access_token(ACCSESS_TOKEN))
+if __name__ == "__main__":
+    ACCSESS_TOKEN = input("Enter your Threads access token: ")
+    print(extend_access_token(ACCSESS_TOKEN))

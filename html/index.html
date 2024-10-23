@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xmas Countdown</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/exifreader/dist/exif-reader.js" type="module"></script>
+    <script src="script.js" type="module"></script>
 </head>
 <body>
     <nav>
@@ -15,49 +17,52 @@
         </div>
 
         <div class="icon-space">
-            <a href="https://bsky.app/profile/xmas-countdown.likes.gay"><img src="bsky.svg" alt="Bluesky logo" width="50" height="50"></a>
-            <a href="https://www.threads.net/@daily_xmas_countdown"><img src="threads.svg" alt="Threads logo" width="50" height="50"></a>
+            <a href="https://bsky.app/profile/xmas-countdown.likes.gay"><img src="bsky.svg" alt="Bluesky" width="50" height="50"></a>
+            <a href="https://www.threads.net/@daily_xmas_countdown"><img src="threads.svg" alt="Threads" width="50" height="50"></a>
         </div>
     </nav>
 
     <main>
         <div class="countdown-container">
-            <img src="currentImage.png"  alt="Countdown">
+            <img src="currentImage.png" alt="Countdown">
         </div>
 
-        <h2>About</h2>    
+        <h2>About</h2>
         <p>
-                Counting down to Christmas on <em><strong>almost</strong></em> every social media that has an <abbr title="Application Programming Interface">API</abbr> available.
+            Counting down to Christmas on <em><strong>almost</strong></em> every social media that has an <abbr title="Application Programming Interface">API</abbr> available.
         </p>
 
         <h3>Status</h3>
-            <img src="https://github.com/likes-gay/bluesky-chrsitmas-countdown/workflows/Post%20every%2024%20hours/badge.svg">
+        <img src="https://github.com/likes-gay/bluesky-chrsitmas-countdown/workflows/Post%20every%2024%20hours/badge.svg">
     
-        <br>
-            <table class="todo-table">
-                <thead><h3>Todo</h3></thead>
-                <tbody>
-                    <tr>
-                        <td>Build image generator</td>
-                        <td>✅</td>
-                    </tr>
+        <table class="todo-table">
+            <thead>
+                <tr>
+                    <th>Todo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Build image generator</td>
+                    <td>✅</td>
+                </tr>
 
-                    <tr>
-                        <td>Come to Bluesky social</td>
-                        <td>✅</td>
-                    </tr>
+                <tr>
+                    <td>Come to Bluesky social</td>
+                    <td>✅</td>
+                </tr>
 
-                    <tr>
-                        <td>Build website</td>
-                        <td>⌛</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Come to Threads</td>
-                        <td>🔮</td>
-                    </tr>
-                </tbody>
-            </table>
+                <tr>
+                    <td>Build website</td>
+                    <td>⌛</td>
+                </tr>
+                
+                <tr>
+                    <td>Come to Threads</td>
+                    <td>✅</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <footer>

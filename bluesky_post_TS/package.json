@@ -1,7 +1,7 @@
 {
 	"name": "christmas-countdown-social-bot",
 	"version": "1.0.0",
-	"description": "Christmas Countdown BlueSky Bot",
+	"description": "Chrsitmas Countdown Social Bot",
 	"type": "module",
 	"main": "index.js",
 	"scripts": {

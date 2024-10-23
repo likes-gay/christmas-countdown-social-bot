@@ -1,10 +1,8 @@
-import datetime, os, json
+import datetime, os, json, requests
 from io import BytesIO
 from PIL import Image, ImageFilter, ImageDraw, ImageFont, ImageEnhance
 from PIL.PngImagePlugin import PngInfo
 from random import choice
-import requests
-
 
 today_date = datetime.date.today()
 christmas_date = datetime.date(today_date.year, 12, 25)
@@ -54,13 +52,13 @@ with open("image_log.txt", "a+") as f:
 
 	f.write(image_json["id"] + "\n")
 
-MAX_FILESIZE = 976.56 #This is here for reference, but is not used in the code
+MAX_FILESIZE = 976.56 # This is here for reference, but is not used in the code
 
 image_url = (image_json["urls"]["raw"] + "&" + ("h" if image_json["width"] > image_json["height"] else "w") + "=600&q=75&fm=png")
 
 image_download = requests.get(image_url).content
 
-#currently using a hard-coded image so that the API doesn't get called too much
+# currently using a hard-coded image so that the API doesn't get called too much
 cur_img = Image.open(BytesIO(image_download))
 
 del image_json, image_download
@@ -74,7 +72,7 @@ right = (width + length)/2
 bottom = (height + length)/2
 cur_img = cur_img.crop((left, top, right, bottom))
 
-#resize image
+# resize image
 cur_img = cur_img.resize((600, 600))
 
 # add effects to image
@@ -100,10 +98,11 @@ else:
 # draw number on image
 text_on_image.text((width/2, height/2), str(days_until_christmas), font=font, anchor="mm")
 
-#draw "Days until Christmas" on image
+# draw "Days until Christmas" on image
 font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
-text_on_image.text((width/2, height/2 + 200), "Days until Christmas!" if days_until_christmas != 1 else "Day until Christmas!", font=font, anchor="mm")
+optional_s = "s" if days_until_christmas != 1 else ""
+text_on_image.text((width/2, height/2 + 200), f"Day{optional_s} until Christmas!", font=font, anchor="mm")
 
 # Create caption for image
 
@@ -117,7 +116,7 @@ caption = f"There are {days_until_christmas} days until Christmas! {choice(CHRIS
 metadata = PngInfo()
 metadata.add_text("caption", caption)
 metadata.add_text("days_until_christmas", str(days_until_christmas))
-
+metadata.add_text("alt_text", f"{days_until_christmas} day{optional_s} until Christmas!")
 
 # save image
 cur_img.save(f"../currentImage.png", pnginfo=metadata)

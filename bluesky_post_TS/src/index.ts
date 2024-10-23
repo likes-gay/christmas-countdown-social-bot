@@ -2,7 +2,7 @@ import { CreatedSessionResponse, CreatedPostResponse, UploadedBlobResponse, Erro
 import core from "@actions/core";
 import path from "path";
 import fs from "fs";
-import ExifReader from 'exifreader';
+import ExifReader from "exifreader";
 import "dotenv/config";
 
 const BSKY_URL = "https://bsky.social";
@@ -34,7 +34,7 @@ const createdSession: CreatedSessionResponse = await fetchWithError(`${BSKY_URL}
 	body: JSON.stringify({
 		identifier: process.env.BSKY_HANDLE!,
 		password: process.env.BSKY_PASSWORD!,
-	} as AuthTokens),
+	} satisfies AuthTokens),
 	method: "POST",
 }).then(x => x.json());
 
@@ -43,9 +43,6 @@ const imageFileRead = fs.readFileSync(
 );
 
 const tags = ExifReader.load(imageFileRead);
-
-const caption = tags['caption'].description;
-const numDays = tags['days_until_christmas'].description;
 
 const accessToken = "Bearer " + createdSession.accessJwt;
 
@@ -68,18 +65,18 @@ const createdPost: CreatedPostResponse = await fetchWithError(`${BSKY_URL}/xrpc/
 		collection: "app.bsky.feed.post",
 		record: {
 			$type: "app.bsky.feed.post",
-			text: caption,
+			text: tags["caption"].description,
 			createdAt: new Date().toISOString(),
 			langs: ["en-GB"],
 			embed: {
 				$type: "app.bsky.embed.images",
 				images: [{
-					alt: `${numDays} until Christmas!`,
+					alt: tags["alt_text"].description,
 					image: createdBlob.blob,
 				}],
 			},
 		},
-	} as PostRecord),
+	} satisfies PostRecord),
 	method: "POST",
 }).then(x => x.json());
 
