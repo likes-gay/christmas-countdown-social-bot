@@ -1,4 +1,5 @@
 import os, time, requests
+from io import BytesIO
 from PIL import Image
 from refresh_key import extend_access_token
 
@@ -9,8 +10,7 @@ IMAGE_URL = "https://xmas-countdown.likes.gay/currentImage.png"
 ENDPOINT = f"https://graph.threads.net/v1.0/{THREADS_USER_ID}"
 
 def create_media_container():
-    #BytesIO(requests.get(IMAGE_URL).content
-    metadata = Image.open("./currentImage.png").text
+    metadata = Image.open(BytesIO(requests.get(IMAGE_URL).content).text
     
     response = requests.post(f"{ENDPOINT}/threads",
                             params={
