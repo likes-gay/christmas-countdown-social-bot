@@ -10,7 +10,7 @@ IMAGE_URL = "https://xmas-countdown.likes.gay/currentImage.png"
 ENDPOINT = f"https://graph.threads.net/v1.0/{THREADS_USER_ID}"
 
 def create_media_container():
-    metadata = Image.open(BytesIO(requests.get(IMAGE_URL).content).text
+    metadata = Image.open(BytesIO(requests.get(IMAGE_URL).content)).text
     
     response = requests.post(f"{ENDPOINT}/threads",
                             params={
