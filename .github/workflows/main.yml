@@ -111,7 +111,7 @@ jobs:
       with:
         name: post_image
 
-    - name: Create bsky post
+    - name: Create Bluesky post
       run: npm run start
       env:
         BSKY_HANDLE: ${{ vars.BSKY_HANDLE }}
@@ -138,7 +138,7 @@ jobs:
         pip install -r requirements.txt
       working-directory: threads_post_PY
 
-    - name: Create threads post
+    - name: Create Threads post
       run: python threads_post.py
       env:
         THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
