@@ -7,8 +7,13 @@ from random import choice
 today_date = datetime.date.today()
 christmas_date = datetime.date(today_date.year, 12, 25)
 
+if today_date > christmas_date:
+	christmas_date = christmas_date.replace(year=today_date.year + 1)
+
 days_until_christmas = (christmas_date - today_date).days
-print("There are", days_until_christmas, "days until Christmas!")
+there_are_days = f"There are {days_until_christmas} days" if days_until_christmas != 1 else f"There is {days_until_christmas} day"
+
+print(f"{there_are_days} until Christmas!")
 
 def get_image():
 	SEARCH_TERMS = ["Christmas", "Christmas wallpaer", "Christmas background", "Santa", "Xmas"]
@@ -102,7 +107,7 @@ text_on_image.text((width/2, height/2), str(days_until_christmas), font=font, an
 font = ImageFont.truetype("./fonts/Smiling.otf", 50)
 
 optional_s = "s" if days_until_christmas != 1 else ""
-text_on_image.text((width/2, height/2 + 200), f"Day{optional_s} until Christmas!", font=font, anchor="mm")
+text_on_image.text((width/2, height/2 + 200), f"day{optional_s} until Christmas!", font=font, anchor="mm")
 
 # Create caption for image
 
@@ -110,8 +115,9 @@ CHRISTMAS_EMOJIS = ["🎄", "🎅", "🎁", "❄️", "⛄", "🔔", "🕯️",
                     "🌟", "🎉", "🦌", "🤶", "🍪", "🥛", "🎶",
                     "👼", "🍭", "🎀", "🦌", "🏡", "🌲", "🍬",
                     "🧦", "🎊", "🛷", "🔥", "🎁"]
+two_emojis = f"{choice(CHRISTMAS_EMOJIS)}{choice(CHRISTMAS_EMOJIS)}"
 
-caption = f"There are {days_until_christmas} days until Christmas! {choice(CHRISTMAS_EMOJIS)}{choice(CHRISTMAS_EMOJIS)}"
+caption = f"{there_are_days} until Christmas! {two_emojis}" if days_until_christmas != 0 else f"CHRISTMAS IS TODAY!\n\nMerry Christmas! {two_emojis}"
 
 metadata = PngInfo()
 metadata.add_text("caption", caption)
