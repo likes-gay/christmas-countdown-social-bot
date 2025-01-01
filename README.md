@@ -1,4 +1,4 @@
-# Chrsitmas Countdown Social Bot
+# Christmas Countdown Social Bot
 
 This is a Christmas countdown bot. It posts an image each day with how many days are left until Christmas, on various sites
 
