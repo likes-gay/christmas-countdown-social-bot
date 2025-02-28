@@ -27,7 +27,7 @@ jobs:
       working-directory: image_gen_PY
 
     - name: Download Image Log file
-      uses: dawidd6/action-download-artifact@v8
+      uses: dawidd6/action-download-artifact@v9
       with:
         name: image_log
         path: ./image_gen_PY/
