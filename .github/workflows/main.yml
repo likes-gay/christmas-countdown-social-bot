@@ -41,13 +41,13 @@ jobs:
       working-directory: image_gen_PY
 
     - name: Upload Image Log file
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: image_log
         path: ./image_gen_PY/image_log.txt
     
     - name: Upload post image to artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: post_image
         path: currentImage.png
