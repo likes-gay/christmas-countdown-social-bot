@@ -70,7 +70,7 @@ jobs:
       uses: actions/checkout@v5
 
     - name: Download post image
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
       with:
         name: post_image
 
@@ -107,7 +107,7 @@ jobs:
       working-directory: bluesky_post_TS
         
     - name: Download post image
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
       with:
         name: post_image
 
